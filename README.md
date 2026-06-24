@@ -42,15 +42,15 @@ eGovFrame · Spring · MyBatis · JSP 장애 흐름에 최적화.
 
 ```bash
 # 스킬 디렉터리로 클론
-git clone https://github.com/klic-co-kr/klic-e-GovFrame-Skills.git
+git clone https://github.com/klic-co-kr/KLIC-eGovFrame-Skills.git
 # 각 스킬을 개인 스킬 디렉터리에 복사
-cp -r klic-e-GovFrame-Skills/skills/klic-* ~/.claude/skills/
+cp -r KLIC-eGovFrame-Skills/skills/klic-* ~/.claude/skills/
 ```
 
 또는 심볼릭 링크로 연결(업데이트 편의):
 
 ```bash
-for d in klic-e-GovFrame-Skills/skills/klic-*; do
+for d in KLIC-eGovFrame-Skills/skills/klic-*; do
   ln -s "$(pwd)/$d" ~/.claude/skills/"$(basename "$d")"
 done
 ```
@@ -60,7 +60,7 @@ done
 `~/.agents/skills/` 를 스킬 디렉터리로 사용:
 
 ```bash
-cp -r klic-e-GovFrame-Skills/skills/klic-* ~/.agents/skills/
+cp -r KLIC-eGovFrame-Skills/skills/klic-* ~/.agents/skills/
 ```
 
 > 각 스킬은 `SKILL.md` 하나로 자기완결. 별도 의존성 없음.
