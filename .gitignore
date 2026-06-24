@@ -1,0 +1,16 @@
+# 원본 스킬 팩 (release artifact, 소스는 skills/)
+backup/
+*.skill
+
+# OS
+.DS_Store
+Thumbs.db
+
+# 에디터
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# 로그
+*.log
