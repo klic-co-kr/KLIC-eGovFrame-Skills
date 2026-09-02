@@ -1,5 +1,5 @@
 ---
-name: klic-effort-router
+name: effort-router
 description: KLIC/GIDO 철학 기반 유지보수 조직용 작업 티어(S/M/L/XL) 판정·단계별(계획/검토/구현/리뷰/검증) 모델·에포트 배정 스킬; 화이트리스트 서브에이전트로만 라우팅; eGovFrame 유지보수 작업 배분 포함. Claude Code 전용.
 ---
 

@@ -13,7 +13,7 @@ eGovFrame · Spring · MyBatis · JSP 장애 흐름에 최적화.
 | 스킬 | 용도 | 주요 트리거 |
 |------|------|-------------|
 | **klic-spec-intake** | 오류/개선 요청 접수 → EARS 요구사항 → Acceptance → Task 변환 | 요청·이슈 접수, 요구사항 정리 |
-| **klic-effort-router** | 작업 티어(S/M/L/XL) 판정 → 단계별(계획/검토/구현/리뷰) 모델·에포트 배정, 정의된 서브에이전트 파일로만 라우팅. M티어 이상은 §5 상태·인계 계약(증거번들 인계·state.json 진행·조건부 롤백) 적용 | 작업 착수 전 티어 판정, 서브에이전트 위임, 단계 간 인계·진행 상태 운반, 보안 감사 준비 |
+| **effort-router** | 작업 티어(S/M/L/XL) 판정 → 단계별(계획/검토/구현/리뷰) 모델·에포트 배정, 정의된 서브에이전트 파일로만 라우팅. M티어 이상은 §5 상태·인계 계약(증거번들 인계·state.json 진행·조건부 롤백) 적용 | 작업 착수 전 티어 판정, 서브에이전트 위임, 단계 간 인계·진행 상태 운반, 보안 감사 준비 |
 | **klic-bugfix-triage** | 오류 질문·버그 재현·원인분석·최소수정 범위 도출 | 버그 리포트, 장애 재현, 원인 추적 |
 | **klic-refactor-scope** | 리팩터링 범위 통제·과추상화 방지 | 공통화, MyBatis/JSP 대량 변경 범위 판정 |
 | **klic-maintenance-quality** | 스펙·코드품질·공공데이터 표준·검증 게이트 종합 | 유지보수 품질 게이트 |
@@ -26,7 +26,7 @@ eGovFrame · Spring · MyBatis · JSP 장애 흐름에 최적화.
 
 ```
 접수        → klic-spec-intake
-작업배분    → klic-effort-router (티어 판정·모델/에포트 배정)
+작업배분    → effort-router (티어 판정·모델/에포트 배정)
 분석        → klic-bugfix-triage
 범위통제    → klic-refactor-scope
 품질검증    → klic-maintenance-quality
@@ -37,7 +37,7 @@ eGovFrame · Spring · MyBatis · JSP 장애 흐름에 최적화.
 ```
 
 > 티어 구분: klic-spec-intake의 MVP/Core/Product/RFP는 **프로젝트 티어**(스펙 범위),
-> klic-effort-router의 S/M/L/XL은 **작업 티어**(실행 자원)다. 혼용하지 않는다.
+> effort-router의 S/M/L/XL은 **작업 티어**(실행 자원)다. 혼용하지 않는다.
 
 ---
 
@@ -51,9 +51,9 @@ git clone https://github.com/klic-co-kr/KLIC-eGovFrame-Skills.git
 # 각 스킬을 개인 스킬 디렉터리에 복사
 cp -r KLIC-eGovFrame-Skills/skills/klic-* ~/.claude/skills/
 
-# klic-effort-router 서브에이전트 파일은 agents 디렉터리에 복사 (라우팅 대상)
+# effort-router 서브에이전트 파일은 agents 디렉터리에 복사 (라우팅 대상)
 mkdir -p ~/.claude/agents
-cp KLIC-eGovFrame-Skills/skills/klic-effort-router/agents/*.md ~/.claude/agents/
+cp KLIC-eGovFrame-Skills/skills/effort-router/agents/*.md ~/.claude/agents/
 ```
 
 또는 심볼릭 링크로 연결(업데이트 편의):
@@ -63,9 +63,9 @@ for d in KLIC-eGovFrame-Skills/skills/klic-*; do
   ln -s "$(pwd)/$d" ~/.claude/skills/"$(basename "$d")"
 done
 
-# klic-effort-router 서브에이전트는 심볼릭 링크 불가 — 복사 필수
+# effort-router 서브에이전트는 심볼릭 링크 불가 — 복사 필수
 mkdir -p ~/.claude/agents
-cp KLIC-eGovFrame-Skills/skills/klic-effort-router/agents/*.md ~/.claude/agents/
+cp KLIC-eGovFrame-Skills/skills/effort-router/agents/*.md ~/.claude/agents/
 ```
 
 업데이트 시: `git pull` 후 스킬 갱신에 더해 **에이전트 파일도 반드시 재복사**한다.
@@ -74,7 +74,7 @@ cp KLIC-eGovFrame-Skills/skills/klic-effort-router/agents/*.md ~/.claude/agents/
 제거(언인스톨):
 
 ```bash
-rm ~/.claude/skills/klic-effort-router 2>/dev/null
+rm ~/.claude/skills/effort-router 2>/dev/null
 rm -f ~/.claude/agents/klic-{plan-high,plan-xhigh,plan-adversary-xhigh,implement-med,implement-xhigh,core-xhigh,review-pr-high,review-pr-xhigh,security-audit,verify-max,coder-medium}.md
 ```
 
@@ -87,7 +87,7 @@ cp -r KLIC-eGovFrame-Skills/skills/klic-* ~/.agents/skills/
 ```
 
 > 각 스킬은 `SKILL.md` 하나로 자기완결. 별도 의존성 없음.
-> **예외 — klic-effort-router**: Claude Code 전용. 서브에이전트 파일(`agents/`)과 effort frontmatter에 의존하므로 Codex/Gemini에서는 티어 판정·Output Contract만 유효하고 라우팅은 동작하지 않는다.
+> **예외 — effort-router**: Claude Code 전용. 서브에이전트 파일(`agents/`)과 effort frontmatter에 의존하므로 Codex/Gemini에서는 티어 판정·Output Contract만 유효하고 라우팅은 동작하지 않는다.
 
 ---
 
@@ -99,7 +99,7 @@ cp -r KLIC-eGovFrame-Skills/skills/klic-* ~/.agents/skills/
 ├── skills/
 │   ├── klic-bugfix-triage/SKILL.md
 │   ├── klic-incident-postfix/SKILL.md
-│   ├── klic-effort-router/
+│   ├── effort-router/
 │   │   ├── SKILL.md
 │   │   ├── agents/               # 서브에이전트 정의 11종 (~/.claude/agents/로 복사)
 │   │   └── TESTS.md              # 검증 프로토콜·결과
