@@ -49,7 +49,6 @@ git clone https://github.com/klic-co-kr/KLIC-eGovFrame-Skills.git
 cp -r KLIC-eGovFrame-Skills/skills/klic-* ~/.claude/skills/
 
 mkdir -p ~/.claude/agents
-cp KLIC-eGovFrame-Skills/skills/effort-router/agents/*.md ~/.claude/agents/
 ```
 
 또는 심볼릭 링크로 연결(업데이트 편의):
@@ -60,7 +59,6 @@ for d in KLIC-eGovFrame-Skills/skills/klic-*; do
 done
 
 mkdir -p ~/.claude/agents
-cp KLIC-eGovFrame-Skills/skills/effort-router/agents/*.md ~/.claude/agents/
 ```
 
 업데이트 시: `git pull` 후 스킬 갱신에 더해 **에이전트 파일도 반드시 재복사**한다.
@@ -92,7 +90,6 @@ cp -r KLIC-eGovFrame-Skills/skills/klic-* ~/.agents/skills/
 ├── skills/
 │   ├── klic-bugfix-triage/SKILL.md
 │   ├── klic-incident-postfix/SKILL.md
-│   ├── effort-router/
 │   │   ├── SKILL.md
 │   │   ├── agents/               # 서브에이전트 정의 11종 (~/.claude/agents/로 복사)
 │   │   └── TESTS.md              # 검증 프로토콜·결과
