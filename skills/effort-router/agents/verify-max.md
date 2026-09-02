@@ -1,5 +1,5 @@
 ---
-name: klic-verify-max
+name: verify-max
 description: 검증·확인 전용 — 하이쿠에 최대 effort. 코드 리뷰, 작업 결과 확인, 버그 재현 검증에 사용.
 model: haiku
 effort: max

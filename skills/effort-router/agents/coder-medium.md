@@ -1,5 +1,5 @@
 ---
-name: klic-coder-medium
+name: coder-medium
 description: 코드 작성 전용 — 하이쿠에 medium effort. 루틴한 구현, 리팩터링, 테스트 작성에 사용. 깊은 설계 판단 불필요한 작업용.
 model: haiku
 effort: medium

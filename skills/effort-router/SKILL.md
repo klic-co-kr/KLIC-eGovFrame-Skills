@@ -51,33 +51,33 @@ klic-spec-intake의 MVP/Core/Product/RFP는 **프로젝트 티어**(스펙 범�
 ### S
 - ① 계획: 생략
 - ② 검토: 셀프
-- ③ 구현: 메인 세션 직접 / 위임 시 `klic-coder-medium` (haiku)
-- ④ 리뷰: `klic-review-pr-high` (텍스트·스타일만 변경 시 생략)
+- ③ 구현: 메인 세션 직접 / 위임 시 `coder-medium` (haiku)
+- ④ 리뷰: `review-pr-high` (텍스트·스타일만 변경 시 생략)
 
 ### M
-- ① 계획: `klic-plan-high`
+- ① 계획: `plan-high`
 - ② 검토: 생략 (plan-high 재호출 금지 — 자기 산출물 검토는 검토가 아니다)
-- ③ 구현: `klic-implement-med`
-- ④ 리뷰: `klic-review-pr-high`
+- ③ 구현: `implement-med`
+- ④ 리뷰: `review-pr-high`
 
 ### L
-- ① 계획: `klic-plan-high` (Phase 분해 필수)
-- ② 검토: `klic-plan-adversary-xhigh` 팬아웃 ●●● (기본 3렌즈)
-- ③ 구현: `klic-implement-med` (Phase당 ≤5파일, 격리 필요 시 worktree)
-- ④ 리뷰: `klic-review-pr-xhigh` → 최종 판정 권위는 klic-pr-review-gate
+- ① 계획: `plan-high` (Phase 분해 필수)
+- ② 검토: `plan-adversary-xhigh` 팬아웃 ●●● (기본 3렌즈)
+- ③ 구현: `implement-med` (Phase당 ≤5파일, 격리 필요 시 worktree)
+- ④ 리뷰: `review-pr-xhigh` → 최종 판정 권위는 klic-pr-review-gate
 
 ### XL
-- ① 계획: `klic-plan-xhigh`
-- ② 검토: `klic-plan-adversary-xhigh` 팬아웃 ●●● (5렌즈)
-- ③ 구현: `klic-implement-xhigh` / 직렬 임계경로 코어만 `klic-core-xhigh` (기준: klic-plan-xhigh 산출물의 임계경로 식별)
-- ④ 리뷰: `klic-review-pr-xhigh` → 최종 판정 권위는 klic-pr-review-gate
+- ① 계획: `plan-xhigh`
+- ② 검토: `plan-adversary-xhigh` 팬아웃 ●●● (5렌즈)
+- ③ 구현: `implement-xhigh` / 직렬 임계경로 코어만 `core-xhigh` (기준: plan-xhigh 산출물의 임계경로 식별)
+- ④ 리뷰: `review-pr-xhigh` → 최종 판정 권위는 klic-pr-review-gate
 
 ### 보안감사
-- `klic-security-audit` + 교차 검증 1건 이상 (리뷰 에이전트 1명 또는 상위 세션 재판정). CRITICAL 즉시 최상단 보고.
+- `security-audit` + 교차 검증 1건 이상 (리뷰 에이전트 1명 또는 상위 세션 재판정). CRITICAL 즉시 최상단 보고.
 
 ## ●●● 팬아웃
 
-`klic-plan-adversary-xhigh`를 병렬 스폰, 프롬프트마다 렌즈 1개:
+`plan-adversary-xhigh`를 병렬 스폰, 프롬프트마다 렌즈 1개:
 
 - **기본 3렌즈** (L티어): 완전성 / 기술적 오류 / 위험
 - **5렌즈** (XL티어): + 단순성 / 검증성
@@ -159,7 +159,7 @@ klic-spec-intake의 MVP/Core/Product/RFP는 **프로젝트 티어**(스펙 범�
 - 판정 티어: {S | M | L | XL | 보안감사}
 - 작업 단계: {계획 | 검토 | 구현 | PR 리뷰 | 검증}   # state.json phase 대응: 계획=plan, 검토=adversary, 구현=implement, PR 리뷰=review, 검증=verify
 - 적용 에이전트·모델·에포트: {agent-file} ({model} / {effort})
-- 팬아웃: {OFF | ON: klic-plan-adversary-xhigh × 3 (완전성/기술적오류/위험)}
+- 팬아웃: {OFF | ON: plan-adversary-xhigh × 3 (완전성/기술적오류/위험)}
 - 단계 상태: {phase → next} (§5 적용 시 state.json 기준)
 - 실행 지침 요약: {해당 티어 제약조건 인용}
 ```

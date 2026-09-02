@@ -1,5 +1,5 @@
 ---
-name: klic-core-xhigh
+name: core-xhigh
 description: XL티어 직렬 임계경로 코어 구현 전용 — opus 슬롯에 xhigh effort. 텍스트엔진 등 시스템 전체가 의존하는 코어 모듈·정확도가 곧 전체 품질인 직렬 경로에 사용.
 model: opus
 effort: xhigh

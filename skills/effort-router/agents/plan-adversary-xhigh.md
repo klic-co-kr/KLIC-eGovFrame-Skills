@@ -1,5 +1,5 @@
 ---
-name: klic-plan-adversary-xhigh
+name: plan-adversary-xhigh
 description: L/XL티어 계획 검토 전용 적대적 리뷰어 — opus 슬롯에 xhigh effort. 계획의 결함·누락·위험을 찾아내는 역할. 스킬 작성자 판단에 반대 증거 찾기에도 사용.
 model: opus
 effort: xhigh

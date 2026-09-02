@@ -70,7 +70,7 @@ SKILL.state(arXiv 2608.26263)·HoH(flesymeb HarnessOfHarness) 통합 섹션 §5�
 
 ## §5 적대검토·개정 (2026-09-02, 3렌즈 팬아웃)
 
-klic-plan-adversary-xhigh × 3 (opus/xhigh, 완전성/기술적오류/위험 렌즈 병렬). 합계 CRITICAL 5·HIGH 15·MEDIUM 17·LOW 9. 교차확인으로 확정된 CRITICAL 4건 — claims 운반 경로 부재, state.json 쓰기 주체·동시성·위치 미정의, null-삭제 semantics 부재, 롤백 앵커 파괴성. 판정: **반려 → §5 개정**.
+plan-adversary-xhigh × 3 (opus/xhigh, 완전성/기술적오류/위험 렌즈 병렬). 합계 CRITICAL 5·HIGH 15·MEDIUM 17·LOW 9. 교차확인으로 확정된 CRITICAL 4건 — claims 운반 경로 부재, state.json 쓰기 주체·동시성·위치 미정의, null-삭제 semantics 부재, 롤백 앵커 파괴성. 판정: **반려 → §5 개정**.
 
 개정 반영: 단일 writer(메인 세션)·위치·과업 식별자 / claims 배열·bundle 경로·④리뷰 프롬프트 주입 조항 / null-삭제·status 전환·superseded 규칙 / 패치 검증 / 긴급 트랙·S티어 제외 / round 이원 카운트(②·④ 각 2회) / escalated phase / 롤백 3조건(확인·앵커·fix-forward) / Output Contract 상태 라인·단계명 매핑 / 리뷰 에이전트 2종 tools 읽기전용 제한·claims 출력 계약(설치본 재복사).
 

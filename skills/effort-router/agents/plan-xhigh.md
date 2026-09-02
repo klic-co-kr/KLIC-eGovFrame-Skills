@@ -1,5 +1,5 @@
 ---
-name: klic-plan-xhigh
+name: plan-xhigh
 description: L/XL티어 구현 전 아키텍처 수준 계획 작성 전용 — opus 슬롯에 xhigh effort. 5파일 초과·코어 엔진·전면 리팩터링 계획에 사용.
 model: opus
 effort: xhigh

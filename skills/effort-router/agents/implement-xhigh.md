@@ -1,5 +1,5 @@
 ---
-name: klic-implement-xhigh
+name: implement-xhigh
 description: XL티어 구현 전용 — sonnet 슬롯에 xhigh effort. 프로토타입 이터레이션·설계 판단이 구현 중 요구되는 작업에 사용.
 model: sonnet
 effort: xhigh

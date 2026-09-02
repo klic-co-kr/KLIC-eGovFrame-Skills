@@ -1,5 +1,5 @@
 ---
-name: klic-review-pr-xhigh
+name: review-pr-xhigh
 description: L/XL티어 PR·diff 리뷰 전용 — opus 슬롯에 xhigh effort. 대형 변경·고위험 코어 모듈의 심층 리뷰에 사용.
 model: opus
 effort: xhigh
